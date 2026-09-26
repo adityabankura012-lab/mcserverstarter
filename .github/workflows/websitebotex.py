@@ -120,10 +120,10 @@ def run_loginflow(usernamesec,passwordsec):
         password.send_keys(passwordsec)
         password.send_keys(Keys.RETURN)
         # Optional: Wait to observe behavior (debugging)
-        time.sleep(8)
-        pWebDriverWait(driver, 30).until(
+       WebDriverWait(driver, 30).until(
     lambda d: "dashboard" in d.current_url
 )
+print("logged in and reached dashboard")
 print("logged in and reached dashboard")
         print(f"Error occurred(password): {e}")
         print("After waiting for password:\n"+driver.current_url)
