@@ -162,7 +162,7 @@ try:
     # Wait for the start button to be visible
     try:
         wait = WebDriverWait(driver, 20)
-        startworld = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn-primary")))
+        startworld = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(normalize-space(.), 'Start World')]")))
         print("After waiting for start:\n"+driver.current_url)
     except:
         try: # Check if password is incorrect or stop button is already present
@@ -175,8 +175,8 @@ try:
             else:
                 try:
                     stopworld = WebDriverWait(driver, 5).until(
-                        EC.visibility_of_element_located((By.XPATH, "//button[contains(@class, 'btn-error')]"))
-                    )
+                        EC.visibility_of_element_located((By.XPATH, "//button[contains(normalize-space(.), 'Stop World')]"))
+)
                     print("Stop button found — world already running.")
                     driver.quit()
                     sys.exit()
